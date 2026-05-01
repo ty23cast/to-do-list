@@ -19,7 +19,7 @@
         // make connection 
         $connect = new PDO("mysql:host={$host};dbname={$dbName}", $user, $password);
         $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo ("SUCCESS BITCHES");
+        echo ("Success");
 
     }
     catch (PDOException $e) {
