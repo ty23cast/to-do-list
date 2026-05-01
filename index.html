@@ -3,123 +3,131 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pomodoro Timer</title>
+    <title>My Tasks - To-Do List</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="app-shell py-5">
-      <div class="container">
-        <header class="mb-4 text-center text-white">
-          <p class="small-uppercase mb-1">Focus better with the Pomodoro Method</p>
-          <h1 class="display-4 font-weight-bold">Pomodoro Timer</h1>
-          <p class="lead text-light-muted">Work sessions, short breaks, and a task list all in one clean layout.</p>
-        </header>
-
-        <div class="row">
-          <section class="col-lg-5 mb-4">
-            <div class="card timer-card shadow-sm">
-              <div class="card-body text-center">
-                <div class="session-label mb-3">
-                  <span class="badge badge-pill badge-warning">Work session</span>
-                </div>
-                <div class="timer-circle mx-auto mb-4">
-                  <span class="countdown">25:00</span>
-                </div>
-                <div class="timer-controls d-flex justify-content-center flex-wrap mb-3">
-                  <button class="btn btn-primary btn-lg mr-2 mb-2">Start</button>
-                  <button class="btn btn-outline-light btn-lg mr-2 mb-2">Pause</button>
-                  <button class="btn btn-outline-secondary btn-lg mb-2">Reset</button>
-                </div>
-                <div class="timer-meta d-flex justify-content-between text-left mt-4">
-                  <div>
-                    <p class="mb-1 text-white-50">Today</p>
-                    <strong>3 sessions</strong>
-                  </div>
-                  <div>
-                    <p class="mb-1 text-white-50">Focus time</p>
-                    <strong>1h 15m</strong>
-                  </div>
-                </div>
-              </div>
+    <div class="main-container">
+      <!-- Header Section -->
+      <div class="bg-primary text-white py-4 mb-4 shadow">
+        <div class="container-fluid">
+          <div class="row align-items-center">
+            <div class="col">
+              <h1 class="display-4 mb-0">
+                <i class="fas fa-check-circle mr-3"></i>
+                My Tasks
+              </h1>
+              <p class="lead mb-0">Stay organized and productive</p>
             </div>
-          </section>
-
-          <section class="col-lg-7 mb-4">
-            <div class="card task-card shadow-sm">
-              <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                  <div>
-                    <h2 class="h5 mb-1">Task list</h2>
-                    <p class="text-muted mb-0">Add, review, and complete your focus tasks.</p>
-                  </div>
-                  <span class="badge badge-pill badge-success align-self-start">5 tasks</span>
-                </div>
-
-                <form class="task-form mb-4">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Add a new task" aria-label="Add a new task" />
-                    <div class="input-group-append">
-                      <button class="btn btn-primary" type="button">Add</button>
-                    </div>
-                  </div>
-                </form>
-
-                <ul class="list-group task-list mb-3">
-                  <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <div>
-                      <strong>Write project plan</strong>
-                      <div class="text-muted small">Priority: High</div>
-                    </div>
-                    <div>
-                      <button class="btn btn-sm btn-outline-success mr-2">Done</button>
-                      <button class="btn btn-sm btn-outline-danger">Delete</button>
-                    </div>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <div>
-                      <strong>Review notes</strong>
-                      <div class="text-muted small">Priority: Medium</div>
-                    </div>
-                    <div>
-                      <button class="btn btn-sm btn-outline-success mr-2">Done</button>
-                      <button class="btn btn-sm btn-outline-danger">Delete</button>
-                    </div>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <div>
-                      <strong>Prepare tomorrow</strong>
-                      <div class="text-muted small">Priority: Low</div>
-                    </div>
-                    <div>
-                      <button class="btn btn-sm btn-outline-success mr-2">Done</button>
-                      <button class="btn btn-sm btn-outline-danger">Delete</button>
-                    </div>
-                  </li>
-                </ul>
-
-                <div class="d-flex flex-wrap justify-content-between align-items-center">
-                  <div class="btn-group mb-2" role="group">
-                    <button class="btn btn-outline-secondary btn-sm">All</button>
-                    <button class="btn btn-outline-secondary btn-sm">Active</button>
-                    <button class="btn btn-outline-secondary btn-sm">Completed</button>
-                  </div>
-                  <div class="text-right text-muted small mb-2">Last update 5 minutes ago</div>
-                </div>
-              </div>
-            </div>
-          </section>
+          </div>
         </div>
       </div>
-    </main>
 
+      <!-- Add Task Form -->
+      <div class="card shadow-sm mb-4">
+        <div class="card-body">
+          <form class="add-task-form" id="addTaskForm">
+            <div class="input-group input-group-lg">
+              <input type="text" class="form-control" id="taskInput" placeholder="What needs to be done?"
+                     aria-label="New task" required>
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">
+                  <i class="fas fa-plus"></i> Add Task
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Tasks List -->
+      <div class="card shadow-sm">
+        <div class="card-header bg-white">
+          <ul class="nav nav-tabs card-header-tabs" id="taskTabs" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab">All Tasks</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="pending-tab" data-toggle="tab" href="#pending" role="tab">Pending</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="completed-tab" data-toggle="tab" href="#completed" role="tab">Completed</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card-body p-0">
+          <div class="tab-content">
+            <!-- All Tasks Tab -->
+            <div class="tab-pane fade show active" id="all" role="tabpanel">
+              <div class="list-group list-group-flush" id="allTasksList">
+                <!-- Tasks will be dynamically added here -->
+              </div>
+            </div>
+
+            <!-- Pending Tasks Tab -->
+            <div class="tab-pane fade" id="pending" role="tabpanel">
+              <div class="list-group list-group-flush" id="pendingTasksList">
+                <!-- Tasks will be dynamically added here -->
+              </div>
+            </div>
+
+            <!-- Completed Tasks Tab -->
+            <div class="tab-pane fade" id="completed" role="tabpanel">
+              <div class="list-group list-group-flush" id="completedTasksList">
+                <!-- Tasks will be dynamically added here -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Task Statistics -->
+      <div class="row mt-4">
+        <div class="col-md-4 mb-3">
+          <div class="card text-center shadow-sm">
+            <div class="card-body">
+              <h3 class="text-primary mb-1" id="totalTasks">0</h3>
+              <p class="text-muted mb-0">Total Tasks</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="card text-center shadow-sm">
+            <div class="card-body">
+              <h3 class="text-warning mb-1" id="pendingTasks">0</h3>
+              <p class="text-muted mb-0">Pending</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="card text-center shadow-sm">
+            <div class="card-body">
+              <h3 class="text-success mb-1" id="completedTasks">0</h3>
+              <p class="text-muted mb-0">Completed</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Empty State Template -->
+      <div class="empty-state d-none" id="emptyState">
+        <i class="fas fa-clipboard-list"></i>
+        <h4>No tasks yet</h4>
+        <p class="text-muted">Add your first task above to get started!</p>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="app.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-..." crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-..." crossorigin="anonymous"></script>
   </body>
 </html>

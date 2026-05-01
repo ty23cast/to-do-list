@@ -1,0 +1,8 @@
+# ignore env file and vendo file
+.env
+.vendor
+
+# ignore composer dependencies 
+composer.json
+composer.lock
+vendor
